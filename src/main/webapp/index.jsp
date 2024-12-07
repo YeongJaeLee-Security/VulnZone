@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Hello, World!</title>
+<title>VulnZone</title>
 </head>
 <body>
-Hello, World!
+<script>location.href = 'login.jsp'</script>
 </body>
 </html>

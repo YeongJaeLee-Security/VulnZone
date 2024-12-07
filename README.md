@@ -30,10 +30,11 @@
 ---
 
 ## 🔧 개발 환경  
-- **언어:** Java (JDK)  
+- **언어:** Java (JDK), JSP  
 - **IDE:** Eclipse, 기타 Java 지원 IDE  
 - **서버:** Apache Tomcat 또는 로컬 개발 서버  
 - **기반:** DVWA (PHP 기반)를 Java/JSP 환경으로 포팅  
+- **디자인:** Bootstrap  
 
 ---
 

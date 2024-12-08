@@ -7,6 +7,7 @@
 <title>VulnZone</title>
 </head>
 <body>
+<!-- 처음 접속했을 때, 로그인 화면으로 이동 -->
 <script>location.href = 'login.jsp'</script>
 </body>
 </html>

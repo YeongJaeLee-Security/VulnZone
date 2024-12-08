@@ -36,6 +36,7 @@
 - **🌐 서버:** Apache Tomcat 또는 로컬 개발 서버  
 - **📚 기반:** DVWA (PHP 기반)를 Java/JSP 환경으로 포팅  
 - **🎨 디자인:** Bootstrap 활용  
+- **📂 데이터베이스:** MySQL  
 
 ---
 

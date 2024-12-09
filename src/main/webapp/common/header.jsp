@@ -29,16 +29,11 @@ if (userID == null) {
 	</div>
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li><a href="../main/home.jsp">홈</a></li>
-			<li><a href="../bbs.jsp">게시판</a></li>
-
 			<!-- 로그인 한 경우 로그아웃 버튼 활성화 -->
 			<%
 			if (userID != null) {
 			%>
-
 			<li><a href="../auth/logoutAction.jsp">로그아웃</a></li>
-
 			<%
 			}
 			%>

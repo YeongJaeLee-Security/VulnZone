@@ -6,10 +6,10 @@
 <html>
 <head>
 <jsp:include page="../common/commonHead.jsp" />
-<title>홈</title>
 </head>
 <body>
 	<!-- 공통 헤더 포함 -->
 	<jsp:include page="../common/header.jsp" />
+	<jsp:include page="../board/board.jsp" />
 </body>
 </html>

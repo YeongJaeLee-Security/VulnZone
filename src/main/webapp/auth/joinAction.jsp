@@ -19,7 +19,6 @@ request.setCharacterEncoding("UTF-8");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>VulnZone</title>
 </head>
 <body>
 	<%

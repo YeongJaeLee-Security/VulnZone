@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>VulnZone</title>
 </head>
 <body>
 	<%

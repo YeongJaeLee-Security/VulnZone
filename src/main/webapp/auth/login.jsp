@@ -3,7 +3,6 @@
 <html>
 <head>
     <jsp:include page="../common/commonHead.jsp" />
-    <title>로그인</title>
 </head>
 <body>
     <div class="container" style="margin-top: 20px;">

@@ -7,3 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap의 bootstrap.css 파일을 참조하여 디자인 사용 -->
 <link rel="stylesheet" href="../css/bootstrap.css">
+<!-- 애니메이션을 담당할 js 참조 -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="../js/bootstrap.js"></script>

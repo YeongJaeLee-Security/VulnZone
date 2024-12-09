@@ -23,7 +23,15 @@ request.setCharacterEncoding("UTF-8");
 </head>
 <body>
 	<%
-	PrintWriter script = response.getWriter();
+	String sessionID = session.getAttribute("userID") != null ? (String) session.getAttribute("userID") : null;
+    PrintWriter script = response.getWriter();
+    
+    if (sessionID != null) {
+    	Utils.presentAlert(script, "이미 로그인이 되어있습니다.");
+    	Utils.location(script, "../main/home.jsp");
+    	
+    	return;
+    }
 	
 	String userID = user.getUserID();
 	String userPassword = user.getUserPassword();
@@ -65,7 +73,9 @@ request.setCharacterEncoding("UTF-8");
 		
 		break;
 	default:
-		Utils.location(script, "../main.jsp");
+		// 회원가입에 성공한 사용자에게 Session ID 부여 - 로그인 성공
+    	session.setAttribute("userID", user.getUserID());
+		Utils.location(script, "../main/home.jsp");
 		break;
 	}
 	

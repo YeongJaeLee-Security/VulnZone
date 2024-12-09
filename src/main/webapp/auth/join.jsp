@@ -6,15 +6,12 @@
     <title>회원가입</title>
 </head>
 <body>
-    <!-- 공통 헤더 포함 -->
-    <jsp:include page="../common/header.jsp" />
-    
-    <div class="container">
+    <div class="container" style="margin-top: 20px;">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
             <div class="jumbotron" style="padding-top: 20px;">
                 <form method="post" action="joinAction.jsp">
-                    <h3 style="text-align: center;">회원가입 화면</h3>
+                    <h3 style="text-align: center;">회원가입</h3>
                     
                     <!-- 아이디 입력란 -->
                     <div class="form-group">

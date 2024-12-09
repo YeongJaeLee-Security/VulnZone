@@ -1,26 +1,47 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter"%>
+
 <!-- 공통 헤더 -->
+<!-- 로그인 상태가 아니라면 로그인 화면으로 이동 -->
+<%
+String userID = session.getAttribute("userID") != null ? (String) session.getAttribute("userID") : null;
+
+if (userID == null) {
+%>
+<script>
+	location.href = '../auth/login.jsp'
+</script>
+<%
+}
+%>
+
 <!-- 하나의 웹 사이트의 전반적인 구성을 보여주는 navigation -->
 <nav class="navbar navbar-default">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed"
-            data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-            aria-expanded="false">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="main.jsp">VulnZone</a>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-            <li><a href="../main.jsp">메인</a></li>
-            <li><a href="../bbs.jsp">게시판</a></li>
-            <li><a href="../auth/login.jsp">로그인</a></li>
-        </ul>
-    </div>
-</nav>
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed"
+			data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+			aria-expanded="false">
+			<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+				class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="../main/home.jsp">VulnZone</a>
+	</div>
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<ul class="nav navbar-nav">
+			<li><a href="../main/home.jsp">홈</a></li>
+			<li><a href="../bbs.jsp">게시판</a></li>
 
-<!-- 애니메이션을 담당할 js 참조 -->
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="../js/bootstrap.js"></script>
+			<!-- 로그인 한 경우 로그아웃 버튼 활성화 -->
+			<%
+			if (userID != null) {
+			%>
+
+			<li><a href="../auth/logoutAction.jsp">로그아웃</a></li>
+
+			<%
+			}
+			%>
+		</ul>
+	</div>
+</nav>

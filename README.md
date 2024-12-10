@@ -1,4 +1,6 @@
-![chrome_f3RQZXNyir](https://github.com/user-attachments/assets/fbd436d2-8356-4f3a-93cd-9af5413ebece)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/fbd436d2-8356-4f3a-93cd-9af5413ebece" alt="image" width="500">
+</p>
 
 # ⚠️ VulnZone - Vulnerable Zone  
 

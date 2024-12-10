@@ -1,3 +1,5 @@
+![스크린샷 2024-12-10 232241](https://github.com/user-attachments/assets/5de21fbe-a995-4908-90ec-6e356cb64cf4)
+
 # ⚠️ VulnZone - Vulnerable Zone  
 
 **VulnZone**은 보안 학습을 위해 설계된 DVWA(Damn Vulnerable Web Application) 기반의 커스텀 프로젝트입니다.  

@@ -16,7 +16,7 @@
 	%>
 
 	<script>
-		location.href = 'main/home.jsp'
+		location.href = 'content/home.jsp'
 	</script>
 
 	<%

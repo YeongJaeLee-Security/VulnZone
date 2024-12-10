@@ -25,7 +25,7 @@ if (userID == null) {
 			<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 				class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="../main/home.jsp">VulnZone</a>
+		<a class="navbar-brand" href="../content/home.jsp">VulnZone</a>
 	</div>
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">

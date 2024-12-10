@@ -24,7 +24,7 @@ request.setCharacterEncoding("UTF-8");
     
     if (sessionID != null) {
     	Utils.presentAlert(script, "이미 로그인이 되어있습니다.");
-    	Utils.location(script, "../main/home.jsp");
+    	Utils.location(script, "../content/home.jsp");
     	
     	return;
     }
@@ -53,7 +53,7 @@ request.setCharacterEncoding("UTF-8");
     case 1:
     	// 로그인에 성공한 사용자에게 Session ID 부여
     	session.setAttribute("userID", user.getUserID());
-    	Utils.location(script, "../main/home.jsp");
+    	Utils.location(script, "../content/home.jsp");
         break;
     case 0:
     	Utils.presentAlert(script, "비밀번호가 틀립니다.");

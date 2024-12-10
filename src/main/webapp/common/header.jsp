@@ -29,11 +29,28 @@ if (userID == null) {
 	</div>
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
+			
+			<!-- Home -->
+			<li><a href="../content/home.jsp">Home</a></li>
+			
+			<!-- Exploits -->
+			<li><a href="../content/exploits.jsp">Exploits</a></li>
+			
+			<!-- Security Level -->
+			<li><a href="../content/level.jsp">Level</a></li>
+			
+			<!-- Security Operations Center -->
+			<li><a href="../content/soc.jsp">SOC</a></li>
+			
+			<!-- About -->
+			<li><a href="../content/about.jsp">About</a></li>
+			
+			<!-- Logout -->
 			<!-- 로그인 한 경우 로그아웃 버튼 활성화 -->
 			<%
 			if (userID != null) {
 			%>
-			<li><a href="../auth/logoutAction.jsp">로그아웃</a></li>
+			<li><a href="../auth/logoutAction.jsp">Logout</a></li>
 			<%
 			}
 			%>

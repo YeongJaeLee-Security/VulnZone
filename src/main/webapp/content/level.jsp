@@ -9,6 +9,5 @@
 <body>
 	<!-- 공통 헤더 포함 -->
 	<jsp:include page="../common/header.jsp" />
-	<jsp:include page="board.jsp" />
 </body>
 </html>

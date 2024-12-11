@@ -71,6 +71,18 @@ request.setCharacterEncoding("UTF-8");
 		Utils.location(script, "join.jsp");
 		
 		break;
+	case -2:
+		Utils.presentAlert(script, "아이디는 알파벳 소문자와 숫자로 구성된 5~20 글자여야 합니다.");
+		Utils.location(script, "join.jsp");
+		break;
+	case -3:
+		Utils.presentAlert(script, "비밀번호는 알파벳 대소문자, 숫자, 특수문자를 포함한 8~20 글자여야 합니다.");
+		Utils.location(script, "join.jsp");
+		break;
+	case -4:
+		Utils.presentAlert(script, "이름은 한글 또는 알파벳 대소문자로 구성된 2~20 글자여야 합니다.");
+		Utils.location(script, "join.jsp");
+		break;
 	default:
 		// 회원가입에 성공한 사용자에게 Session ID 부여 - 로그인 성공
     	session.setAttribute("userID", user.getUserID());

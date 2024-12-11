@@ -5,11 +5,12 @@
     <jsp:include page="../common/commonHead.jsp" />
 </head>
 <body>
+	<script src="../common/regex.js"></script>
     <div class="container" style="margin-top: 20px;">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
             <div class="jumbotron" style="padding-top: 20px;">
-                <form method="post" action="joinAction.jsp">
+                <form method="post" action="joinAction.jsp" onsubmit="return validateForm();">
                     <h3 style="text-align: center;">회원가입</h3>
                     
                     <!-- 아이디 입력란 -->
@@ -35,7 +36,7 @@
                     <!-- 성별 선택 -->
                     <div class="form-group" style="text-align: center;">
                         <div class="btn-group" data-toggle="buttons">
-                        	<label class="btn btn-primary active">
+                        	<label class="btn btn-primary">
                         		<input type="radio" name="userGender" autocomplete="off" value="남자" checked>남자
                         	</label>
                         	
@@ -43,7 +44,7 @@
                         		<input type="radio" name="userGender" autocomplete="off" value="여자" checked>여자
                         	</label>
                         	
-                        	<label class="btn btn-primary">
+                        	<label class="btn btn-primary active">
                         		<input type="radio" name="userGender" autocomplete="off" value="비공개" checked>비공개
                         	</label>
                         </div>

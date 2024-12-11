@@ -101,7 +101,11 @@ public class UserDAO {
     // 비밀번호 해시화 메서드
     private String hashPassword(String password) {
         try {
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
+        	InputStream inputStream = UserDAO.class.getClassLoader().getResourceAsStream("config.properties");
+			properties.load(inputStream);
+			String algorithm = properties.getProperty("pw.encrypt.algorithm");
+			
+            MessageDigest md = MessageDigest.getInstance(algorithm);
             byte[] hash = md.digest(password.getBytes());
             
             // 바이트 배열을 16진수 문자열로 변환

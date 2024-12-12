@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 
 public class UserDAO {
@@ -52,6 +53,14 @@ public class UserDAO {
             return -1; // 아이디 없음
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+        	try {
+	        	if (rs != null) rs.close();
+	        	if (pstmt != null) pstmt.close();
+	        	if (conn != null) conn.close();
+        	} catch (Exception e) {
+        		e.printStackTrace();
+        	}
         }
 
         return -2; // 데이터베이스 오류
@@ -92,6 +101,14 @@ public class UserDAO {
             return pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+        	try {
+	        	if (rs != null) rs.close();
+	        	if (pstmt != null) pstmt.close();
+	        	if (conn != null) conn.close();
+        	} catch (Exception e) {
+        		e.printStackTrace();
+        	}
         }
 
         return -1; // 데이터베이스 오류

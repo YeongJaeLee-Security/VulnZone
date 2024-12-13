@@ -6,7 +6,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.*;
 
 public class UserDAO {
@@ -22,11 +21,12 @@ public class UserDAO {
 			properties.load(inputStream);
 			
 			String dbURL = properties.getProperty("db.url");
+			String dbName = properties.getProperty("db.name");
 			String dbID = properties.getProperty("db.id");
 			String dbPassword = properties.getProperty("db.password");
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
-			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			conn = DriverManager.getConnection(dbURL + dbName, dbID, dbPassword);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

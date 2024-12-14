@@ -33,12 +33,22 @@
 				onclick="location.href='join.jsp'" style="margin-top: 10px">회원가입</button>
 
 			<h3 style="color: red; margin-top: 40px;">사전 준비</h3>
+			<h4>DataBase</h4>
 			<ol>
 				<li>MySQL DBMS 설치가 필요합니다.</li>
 				<li>MySQL DBMS가 설치 되었다면, DATABASE 생성이 필요합니다.</li>
 				<li>DATABASE가 생성이 되었다면, USER Table 생성이 필요합니다.</li>
 				<li>아래 SetUp 버튼을 통해 DATABASE와 USER Table을 생성하여 기본 설정을 진행합니다.</li>
 			</ol>
+			
+			<h4 style="margin-top: 20px;">splunk</h4>
+			<ol>
+				<li>splunk 설치가 필요합니다.</li>
+				<li>splunk 설치가 되었다면, HEC Token 발급 과정을 진행해야 합니다.</li>
+				<li>splunk HEC Token 발급이 완료 되었다면, 토큰을 활성화 해야 합니다.</li>
+				<li>위 과정에 대한 자세한 설명은 <a href="https://truthful-match-ba1.notion.site/Security-Operation-Center-SOC-158f6fa361ca804d8fbcd3198a42ff2d">기술 블로그</a>를 확인하세요.
+			</ol>
+			
 
 			<form method="post" action="setupAction.jsp">
 				<input type="submit" class="btn btn-secondary form-control" value="SetUp">

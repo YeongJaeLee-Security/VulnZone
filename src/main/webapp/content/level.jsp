@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="utils.Utils" %>
 <%@ page import="java.io.PrintWriter"%>
+<%@ include file="../common/commonLevel.jsp" %>
 
 <!DOCTYPE html>
 <html>
@@ -24,13 +25,7 @@
         </div>
         <div class="jumbotron" style="padding-top: 20px;">
             <form method="POST" action="levelAction.jsp">
-                <% 
-                    // 세션에서 level 값을 가져옴
-                    String currentLevel = (String) session.getAttribute("level");
-                    if (currentLevel == null) {
-                        currentLevel = "easy"; // 기본값 설정
-                    }
-                %>
+                
                 <p class="text-muted">Security Level : <em style="color: red;"><%= currentLevel %></em></p>
                 
                 <div class="form-group">

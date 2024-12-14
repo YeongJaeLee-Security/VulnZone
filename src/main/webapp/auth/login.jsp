@@ -38,7 +38,7 @@
 				<li>MySQL DBMS 설치가 필요합니다.</li>
 				<li>MySQL DBMS가 설치 되었다면, DATABASE 생성이 필요합니다.</li>
 				<li>DATABASE가 생성이 되었다면, USER Table 생성이 필요합니다.</li>
-				<li>아래 SetUp 버튼을 통해 DATABASE와 USER Table을 생성하여 기본 설정을 진행합니다.</li>
+				<li>아래 <em style="color: orange;">SetUp</em> 버튼을 통해 DATABASE와 USER Table을 생성하여 기본 설정을 진행합니다.</li>
 			</ol>
 			
 			<h4 style="margin-top: 20px;">splunk</h4>
@@ -50,8 +50,8 @@
 			</ol>
 			
 
-			<form method="post" action="setupAction.jsp">
-				<input type="submit" class="btn btn-secondary form-control" value="SetUp">
+			<form method="post" action="setupAction.jsp" style="margin-top: 20px;">
+				<input type="submit" class="btn btn-warning form-control" value="SetUp">
 			</form>
 		</div>
 	</div>

@@ -11,7 +11,7 @@
 	<jsp:include page="../common/header.jsp" />
 	
 	<div class="container">
-		<h1 class="text-center">VulnZone SOC DashBoard</h1>
+		<h1 class="text-center">VulnZone Security Operation Center</h1>
 		
 		<div>
 			<div>

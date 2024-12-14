@@ -1,19 +1,20 @@
 <%@ page language="java" contentType="application/json; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page
-	import="java.util.stream.Stream, java.text.SimpleDateFormat, java.io.BufferedReader, java.io.FileReader, java.util.*, java.io.*, java.util.stream.Collectors"%>
+	import="java.text.SimpleDateFormat, java.io.BufferedReader, java.io.FileReader, java.util.*, java.io.*, java.util.stream.Collectors"%>
 <%@ page import="logUtil.LogUtil"%>
 <%
+final int MAX_LOG_COUNT = 3000; // 로그 최대 개수 설정, 이 개수를 계속 유지
+
 // 로그 가져오기
 LogUtil logUtil = new LogUtil();
-List<String> logs = new ArrayList<>();
+List<String> logs = new LinkedList<>(); // LinkedList 사용으로 삽입/삭제 성능 최적화
 
 String logDirPath = logUtil.getLogPath();
 File logDir = new File(logDirPath);
 
 if (!logDir.isDirectory()) {
 	response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "");
-	
 	return;
 }
 
@@ -31,6 +32,10 @@ if (logFiles != null) {
 			
 			while ((line = reader.readLine()) != null) {
 				if (line.trim().isEmpty()) {
+					// 로그 추가 전에 최대 개수 초과 여부 확인
+					if (logs.size() >= MAX_LOG_COUNT) {
+						logs.remove(0); // 가장 오래된 로그 제거
+					}
 					logs.add(logEntry.toString());
 					logEntry = new StringBuilder();
 				} else {
@@ -40,9 +45,12 @@ if (logFiles != null) {
 			
 			// 다 쓰고도 남았다면 마지막 처리
 			if (logEntry.length() > 0) {
+				if (logs.size() >= MAX_LOG_COUNT) {
+					logs.remove(0);
+				}
 				logs.add(logEntry.toString().trim());
 			}
-		} catch (Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -58,6 +66,7 @@ if (!"POST".equalsIgnoreCase(request.getMethod())) {
 	return;
 }
 
+// 최신 로그가 상단에 표시되도록 순서 반전
 Collections.reverse(logs);
 
 try {

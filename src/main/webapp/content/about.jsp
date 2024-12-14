@@ -62,7 +62,7 @@
 
 		<h2>라이선스</h2>
 		<p>
-			이 프로젝트는 MIT License에 따라 제공됩니다. 자세한 내용은 <a href="./LICENSE">LICENSE
+			이 프로젝트는 MIT License에 따라 제공됩니다. 자세한 내용은 <a href="https://github.com/YeongJaeLee-Security/VulnZone/blob/main/LICENSE">LICENSE
 				파일</a>을 확인하세요.
 		</p>
 

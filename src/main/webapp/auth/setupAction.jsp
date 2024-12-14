@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<jsp:include page="../common/commonHead.jsp" />
 </head>
 <body>
 	<div>

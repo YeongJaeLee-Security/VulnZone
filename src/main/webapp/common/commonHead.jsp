@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@ include file="logRequest.jsp" %>
+
 <!-- 공통 Head -->
 <meta charset="UTF-8">
 

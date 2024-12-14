@@ -35,9 +35,6 @@ replay_pid*
 /.idea/
 *.iml
 
-# Logs
-*.log
-
 # OS files
 .DS_Store
 Thumbs.db

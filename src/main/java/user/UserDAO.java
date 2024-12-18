@@ -1,6 +1,5 @@
 package user;
 
-import java.io.InputStream;
 import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,25 +7,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.*;
 
+import common.DataBase;
+
 public class UserDAO {
-	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	private Properties properties = new Properties();
+	private DataBase database;
+	private Connection conn;
+	private Properties properties;
 	
 //	생성자 - UserDAO 객체 인스턴스를 생성할 때 자동으로 DB 연결
 	public UserDAO() {
 		try {
-			InputStream inputStream = UserDAO.class.getClassLoader().getResourceAsStream("config.properties");
-			properties.load(inputStream);
-			
-			String dbURL = properties.getProperty("db.url");
-			String dbName = properties.getProperty("db.name");
-			String dbID = properties.getProperty("db.id");
-			String dbPassword = properties.getProperty("db.password");
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			
-			conn = DriverManager.getConnection(dbURL + dbName, dbID, dbPassword);
+			this.database = new DataBase();
+			this.conn = DriverManager.getConnection(database.getDbURL() + database.getDbName(), database.getDbID(), database.getDbPassword());
+			this.properties = database.getProperties();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -53,7 +48,15 @@ public class UserDAO {
             return -1; // 아이디 없음
         } catch (Exception e) {
             e.printStackTrace();
-        } 
+        } finally {
+			try {
+				if (pstmt != null) pstmt.close();
+				if (conn != null) conn.close();
+				if (rs != null) rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
         return -2; // 데이터베이스 오류
     }
@@ -93,17 +96,22 @@ public class UserDAO {
             return pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        } finally {
+			try {
+				if (pstmt != null) pstmt.close();
+				if (conn != null) conn.close();
+				if (rs != null) rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
         return -1; // 데이터베이스 오류
     }
 
-
     // 비밀번호 해시화 메서드
-    private String hashPassword(String password) {
+    public String hashPassword(String password) {
         try {
-        	InputStream inputStream = UserDAO.class.getClassLoader().getResourceAsStream("config.properties");
-			properties.load(inputStream);
 			String algorithm = properties.getProperty("pw.encrypt.algorithm");
 			
             MessageDigest md = MessageDigest.getInstance(algorithm);
@@ -118,7 +126,7 @@ public class UserDAO {
             }
             return hexString.toString();
         } catch (Exception e) {
-            throw new RuntimeException("SHA-256 Algorithm not found", e);
+            throw new RuntimeException("Algorithm not found", e);
         }
     }
 }

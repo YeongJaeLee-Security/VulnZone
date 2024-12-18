@@ -42,6 +42,7 @@
 			</table>
 		</div>
 	</div>
+	<script src="eventHandler.js"></script>
 	<script src="socUtil.js"></script>
 </body>
 </html>

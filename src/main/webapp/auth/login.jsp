@@ -46,7 +46,7 @@
 				<li>splunk 설치가 필요합니다.</li>
 				<li>splunk 설치가 되었다면, HEC Token 발급 과정을 진행해야 합니다.</li>
 				<li>splunk HEC Token 발급이 완료 되었다면, 토큰을 활성화 해야 합니다.</li>
-				<li>위 과정에 대한 자세한 설명은 <a href="https://truthful-match-ba1.notion.site/Security-Operation-Center-SOC-158f6fa361ca804d8fbcd3198a42ff2d">기술 블로그</a>를 확인하세요.
+				<li>위 과정에 대한 자세한 설명은 <a href="https://truthful-match-ba1.notion.site/Security-Operation-Center-SOC-158f6fa361ca804d8fbcd3198a42ff2d" target="_blank">기술 블로그</a>를 확인하세요.
 			</ol>
 			
 

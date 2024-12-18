@@ -1,6 +1,5 @@
 package user;
 
-import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,6 +7,7 @@ import java.sql.ResultSet;
 import java.util.*;
 
 import common.DataBase;
+import utils.Utils;
 
 public class UserDAO {
 	private PreparedStatement pstmt;
@@ -15,6 +15,7 @@ public class UserDAO {
 	private DataBase database;
 	private Connection conn;
 	private Properties properties;
+	private Utils utils;
 	
 //	생성자 - UserDAO 객체 인스턴스를 생성할 때 자동으로 DB 연결
 	public UserDAO() {
@@ -22,6 +23,7 @@ public class UserDAO {
 			this.database = new DataBase();
 			this.conn = DriverManager.getConnection(database.getDbURL() + database.getDbName(), database.getDbID(), database.getDbPassword());
 			this.properties = database.getProperties();
+			this.utils = new Utils();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -39,7 +41,7 @@ public class UserDAO {
 
             if (rs.next()) {
                 // 입력받은 비밀번호 해시화
-                String hashedPassword = hashPassword(userPassword);
+                String hashedPassword = utils.hashPassword(userPassword, this.properties.getProperty("pw.encrypt.algorithm"));
                 
                 // 1 - 로그인 성공, 0 - 비밀번호 불일치
                 return rs.getString(1).equals(hashedPassword) ? 1 : 0;
@@ -86,7 +88,7 @@ public class UserDAO {
             pstmt.setString(1, user.getUserID());
 
             // 비밀번호를 해시화하여 저장
-            String hashedPassword = hashPassword(user.getUserPassword());
+            String hashedPassword = utils.hashPassword(user.getUserPassword(), this.properties.getProperty("pw.encrypt.algorithm"));
             pstmt.setString(2, hashedPassword);
 
             pstmt.setString(3, user.getUserName());
@@ -107,26 +109,5 @@ public class UserDAO {
 		}
 
         return -1; // 데이터베이스 오류
-    }
-
-    // 비밀번호 해시화 메서드
-    public String hashPassword(String password) {
-        try {
-			String algorithm = properties.getProperty("pw.encrypt.algorithm");
-			
-            MessageDigest md = MessageDigest.getInstance(algorithm);
-            byte[] hash = md.digest(password.getBytes());
-            
-            // 바이트 배열을 16진수 문자열로 변환
-            StringBuilder hexString = new StringBuilder();
-            for (byte b : hash) {
-                String hex = Integer.toHexString(0xff & b);
-                if (hex.length() == 1) hexString.append('0');
-                hexString.append(hex);
-            }
-            return hexString.toString();
-        } catch (Exception e) {
-            throw new RuntimeException("Algorithm not found", e);
-        }
     }
 }

@@ -6,7 +6,7 @@
 <jsp:include page="../common/commonHead.jsp" />
 </head>
 <body>
-	<script src="../common/regex.js"></script>
+	<script src="../common/commonRegex.js"></script>
 	<div class="container" style="margin-top: 20px;">
 		<div class="jumbotron" style="padding-top: 20px;">
 			<form method="post" action="joinAction.jsp"

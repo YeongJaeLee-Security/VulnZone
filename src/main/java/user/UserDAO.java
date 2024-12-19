@@ -67,19 +67,14 @@ public class UserDAO {
     public int join(User user) {
         String sql = "INSERT INTO USER VALUES (?, ?, ?, ?, ?)";
 
-        // 정규표현식
-        String idRegex = "^(?=.*[a-z])(?=.*\\d)[a-z0-9]{5,20}$";
-        String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\W_])[a-zA-Z\\d\\W_]{8,20}$";
-        String nameRegex = "^[가-힣a-zA-Z]{2,20}$";
-
         // 유효성 검사
-        if (!user.getUserID().matches(idRegex)) {
+        if (!utils.validateID(user.getUserID())) {
             return -2; // 아이디 형식 오류
         }
-        if (!user.getUserPassword().matches(passwordRegex)) {
+        if (!utils.validatePassword(user.getUserPassword())) {
             return -3; // 비밀번호 형식 오류
         }
-        if (!user.getUserName().matches(nameRegex)) {
+        if (!utils.validateName(user.getUserName())) {
             return -4; // 이름 형식 오류
         }
 

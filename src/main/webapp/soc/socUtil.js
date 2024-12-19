@@ -5,7 +5,7 @@ $(document).ready(() => {
     // 로그 로드 함수
     function loadLogs(keyword = '', page = 1) {
         $.ajax({
-            url: "socData.jsp",
+            url: "../soc/socData.jsp",
             method: "POST",
             data: {
                 keyword: keyword,

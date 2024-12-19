@@ -8,7 +8,7 @@
 </head>
 <body>
 	<!-- 공통 헤더 포함 -->
-	<jsp:include page="../common/header.jsp" />
+	<jsp:include page="../common/commonHeader.jsp" />
 
 	<div class="container">
 		<h1 class="text-center text-danger">VulnZone - Vulnerable Zone</h1>

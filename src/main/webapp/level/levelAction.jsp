@@ -21,7 +21,7 @@ request.setCharacterEncoding("UTF-8");
     <%
     PrintWriter script = response.getWriter();
     session.setAttribute("level", level.getLevel());
-    Utils.location(script, "level.jsp");
+    Utils.location(script, "../content/level.jsp");
     %>
 </body>
 </html>

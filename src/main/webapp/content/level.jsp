@@ -11,7 +11,7 @@
 </head>
 <body>
     <!-- 공통 헤더 포함 -->
-    <jsp:include page="../common/header.jsp" />
+    <jsp:include page="../common/commonHeader.jsp" />
     
     <div class="container">
         <h1>Security Level</h1>
@@ -24,7 +24,7 @@
             </ol>
         </div>
         <div class="jumbotron" style="padding-top: 20px;">
-            <form method="POST" action="levelAction.jsp">
+            <form method="POST" action="../level/levelAction.jsp">
                 
                 <p class="text-muted">Security Level : <em style="color: red;"><%= currentLevel %></em></p>
                 

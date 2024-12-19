@@ -1,3 +1,4 @@
+// soc 페이지 enter 검색
 document.addEventListener('DOMContentLoaded', () => {
 	const searchKeywordInput = document.getElementById('searchKeyword');
 	const searchButton = document.getElementById('searchBtn');

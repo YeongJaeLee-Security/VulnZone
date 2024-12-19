@@ -8,7 +8,7 @@
 <jsp:include page="../common/commonHead.jsp" />
 </head>
 <body>
-	<jsp:include page="../common/header.jsp" />
+	<jsp:include page="../common/commonHeader.jsp" />
 	
 	<div class="container">
 		<h1 class="text-center">VulnZone Security Operation Center</h1>
@@ -44,7 +44,7 @@
 			</table>
 		</div>
 	</div>
-	<script src="eventHandler.js"></script>
-	<script src="socUtil.js"></script>
+	<script src="../common/commonEventHandler.js"></script>
+	<script src="../soc/socUtil.js"></script>
 </body>
 </html>

@@ -34,4 +34,22 @@ public class Utils {
             throw new RuntimeException("Algorithm not found", e);
         }
     }
+    
+    public boolean validateID(String id) {
+    	String idRegex = "^(?=.*[a-z])(?=.*\\d)[a-z0-9]{5,20}$";
+    	
+    	return id.matches(idRegex);
+    }
+    
+    public boolean validatePassword(String password) {
+    	 String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\W_])[a-zA-Z\\d\\W_]{8,20}$";
+    	 
+    	 return password.matches(passwordRegex);
+    }
+    
+    public boolean validateName(String name) {
+    	String nameRegex = "^[가-힣a-zA-Z]{2,20}$";
+    	
+    	return name.matches(nameRegex);
+    }
 }

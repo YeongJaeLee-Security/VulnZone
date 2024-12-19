@@ -59,6 +59,7 @@ if (logFiles != null) {
 	return;
 }
 %>
+
 <%
 // 로그 내보내기
 if (!"POST".equalsIgnoreCase(request.getMethod())) {

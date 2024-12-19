@@ -27,6 +27,8 @@
 				<a href="<%= logUtil.getSplunkUrl() %>" class="btn btn-primary"
 					target="_blank" rel="noopener noreferrer">View in splunk</a>
 			</div>
+			
+			<div id="pagination" class="text-right" style="margin-top: 20px;"></div>
 		</div>
 		
 		<div id="logContainer" class="table-responsive" style="margin-top: 30px;">

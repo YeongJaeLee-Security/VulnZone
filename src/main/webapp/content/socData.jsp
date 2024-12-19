@@ -5,6 +5,20 @@
 <%@ page import="logUtil.LogUtil"%>
 <%
 final int MAX_LOG_COUNT = 3000; // 로그 최대 개수 설정, 이 개수를 계속 유지
+final int DEFAULT_ITEMS_PER_PAGE = 100;
+
+int pages = 1;
+int itemsPerPage = DEFAULT_ITEMS_PER_PAGE;
+
+try {
+	String pageParam = request.getParameter("page");
+	String itemsPerPageParam = request.getParameter("itemsPerPage");
+	
+	if (pageParam != null) pages = Integer.parseInt(pageParam);
+	if (itemsPerPageParam != null) itemsPerPage = Integer.parseInt(itemsPerPageParam);
+} catch (Exception e) {
+	e.printStackTrace();
+}
 
 // 로그 가져오기
 LogUtil logUtil = new LogUtil();
@@ -20,7 +34,7 @@ if (!logDir.isDirectory()) {
 
 File[] logFiles = logDir.listFiles((dir, name) -> name.endsWith(".log"));
 
-if (logFiles != null) {
+if (logFiles != null || logFiles.length != 0) {
 	for (File logFile : logFiles) {
 		try (BufferedReader reader = new BufferedReader(new FileReader(logFile))) {
 			if (!logFile.getCanonicalPath().startsWith(logDirPath)) {
@@ -80,6 +94,14 @@ try {
     e.printStackTrace();
 }
 
+int totalLogs = logs.size();
+int totalPages = (int) Math.ceil((double) totalLogs / itemsPerPage);
+
+int start = (pages - 1) * itemsPerPage;
+int end = Math.min(start + itemsPerPage, totalLogs);
+
+List<String> paginatedLogs = logs.subList(start, end);
+
 response.setContentType("application/json");
 response.setCharacterEncoding("UTF-8");
 
@@ -87,8 +109,8 @@ StringBuilder jsonBuilder = new StringBuilder();
 jsonBuilder.append("{");
 jsonBuilder.append("\"logs\": [");
 
-for (int i = 0; i < logs.size(); i++) {
-	String escapedLog = logs.get(i)
+for (int i = 0; i < paginatedLogs.size(); i++) {
+	String escapedLog = paginatedLogs.get(i)
 			.replace("\\", "\\\\")
 			.replace("\"", "\\\"")
 			.replace("\n", "\\n")
@@ -96,12 +118,13 @@ for (int i = 0; i < logs.size(); i++) {
 	
 	jsonBuilder.append("\"").append(escapedLog).append("\"");
 
-	if (i < logs.size() - 1) {
+	if (i < paginatedLogs.size() - 1) {
 		jsonBuilder.append(", ");
 	}
 }
 
-jsonBuilder.append("]");
+jsonBuilder.append("],");
+jsonBuilder.append("\"totalPages\": ").append(totalPages);;
 jsonBuilder.append("}");
 
 response.getWriter().write(jsonBuilder.toString());

@@ -46,4 +46,3 @@ $(document).ready(() => {
     // 초기 로그 로드
     loadLogs();
 });
-		

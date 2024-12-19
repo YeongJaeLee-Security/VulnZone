@@ -1,6 +1,3 @@
-/**
- * 
- */
 // 입력값 검증 함수
  function validateForm() {
 	const userID = document.querySelector('input[name="userID"]').value;

@@ -87,6 +87,7 @@
 			</p>
 		</blockquote>
 	</div>
+	
+	<%@ include file="../common/commonFooter.jsp" %>
 </body>
-<%@ include file="../common/commonFooter.jsp" %>
 </html>

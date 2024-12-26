@@ -11,4 +11,5 @@
 	<jsp:include page="../common/commonHeader.jsp" />
 	<jsp:include page="board.jsp" />
 </body>
+<%@ include file="../common/commonFooter.jsp" %>
 </html>

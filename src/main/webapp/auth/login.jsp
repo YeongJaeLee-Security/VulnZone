@@ -56,4 +56,5 @@
 		</div>
 	</div>
 </body>
+<%@ include file="../common/commonFooter.jsp" %>
 </html>

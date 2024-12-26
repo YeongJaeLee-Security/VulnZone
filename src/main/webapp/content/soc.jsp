@@ -47,4 +47,5 @@
 	<script src="../common/commonEventHandler.js"></script>
 	<script src="../soc/socUtil.js"></script>
 </body>
+<%@ include file="../common/commonFooter.jsp" %>
 </html>

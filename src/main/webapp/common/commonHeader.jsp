@@ -10,7 +10,8 @@ String userID = session.getAttribute("userID") != null ? (String) session.getAtt
 if (userID == null) {
 %>
 <script>
-	location.href = '../auth/login.jsp'
+	const contextPath = '<%= request.getContextPath() %>'
+	location.href = contextPath + '/auth/login.jsp'
 </script>
 <%
 }
@@ -25,32 +26,32 @@ if (userID == null) {
 			<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 				class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="../content/home.jsp">VulnZone</a>
+		<a class="navbar-brand" href="<%= request.getContextPath() %>/content/home.jsp">VulnZone</a>
 	</div>
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
 			
 			<!-- Home -->
-			<li><a href="../content/home.jsp">Home</a></li>
+			<li><a href="<%= request.getContextPath() %>/content/home.jsp">Home</a></li>
 			
 			<!-- Exploits -->
-			<li><a href="../content/exploits.jsp">Exploits</a></li>
+			<li><a href="<%= request.getContextPath() %>/content/exploits.jsp">Exploits</a></li>
 			
 			<!-- Security Level -->
-			<li><a href="../content/level.jsp">Level</a></li>
+			<li><a href="<%= request.getContextPath() %>/content/level.jsp">Level</a></li>
 			
 			<!-- Security Operations Center -->
-			<li><a href="../content/soc.jsp">SOC</a></li>
+			<li><a href="<%= request.getContextPath() %>/content/soc.jsp">SOC</a></li>
 			
 			<!-- About -->
-			<li><a href="../content/about.jsp">About</a></li>
+			<li><a href="<%= request.getContextPath() %>/content/about.jsp">About</a></li>
 			
 			<!-- Logout -->
 			<!-- 로그인 한 경우 로그아웃 버튼 활성화 -->
 			<%
 			if (userID != null) {
 			%>
-			<li><a href="../auth/logoutAction.jsp">Logout</a></li>
+			<li><a href="<%= request.getContextPath() %>/auth/logoutAction.jsp">Logout</a></li>
 			<%
 			}
 			%>

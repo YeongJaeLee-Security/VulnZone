@@ -55,5 +55,7 @@
 			</form>
 		</div>
 	</div>
+	
+	<%@ include file="../common/commonFooter.jsp" %>
 </body>
 </html>

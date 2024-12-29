@@ -82,10 +82,12 @@
 
 		<blockquote>
 			<p>
-				<em>“보안은 모든 것을 보호하지 못하더라도, 아무것도 보호하지 않는 것보다 낫다.”</em> <br>—
+				<b><em>“보안은 모든 것을 보호하지 못하더라도, 아무것도 보호하지 않는 것보다 낫다.”</em></b> <br>—
 				Kevin Mitnick
 			</p>
 		</blockquote>
 	</div>
+	
+	<%@ include file="../common/commonFooter.jsp" %>
 </body>
 </html>

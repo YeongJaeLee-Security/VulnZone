@@ -10,5 +10,6 @@
 	<!-- 공통 헤더 포함 -->
 	<jsp:include page="../common/commonHeader.jsp" />
 	<jsp:include page="board.jsp" />
+	<%@ include file="../common/commonFooter.jsp" %>
 </body>
 </html>

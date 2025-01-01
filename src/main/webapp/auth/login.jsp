@@ -49,6 +49,12 @@
 				<li>위 과정에 대한 자세한 설명은 <a href="https://truthful-match-ba1.notion.site/Security-Operation-Center-SOC-158f6fa361ca804d8fbcd3198a42ff2d" target="_blank">기술 블로그</a>를 확인하세요.
 			</ol>
 			
+			<h4 style="margin-top: 20px;">reCAPTCHA</h4>
+			<ol>
+				<li>Insecure CAPCHA 실습을 위해 Google reCAPTCHA 생성이 필요합니다.</li>
+				<li><a href="https://www.google.com/recaptcha/admin/create">reCAPTCHA 생성</a></li>
+			</ol>
+			
 
 			<form method="post" action="setupAction.jsp" style="margin-top: 20px;">
 				<input type="submit" class="btn btn-warning form-control" value="SetUp">

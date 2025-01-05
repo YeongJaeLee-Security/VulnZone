@@ -33,7 +33,7 @@
 				onclick="location.href='join.jsp'" style="margin-top: 10px">회원가입</button>
 
 			<h3 style="color: red; margin-top: 40px;">사전 준비</h3>
-			<h4>DataBase</h4>
+			<h4>DataBase (필수)</h4>
 			<ol>
 				<li>MySQL DBMS 설치가 필요합니다.</li>
 				<li>MySQL DBMS가 설치 되었다면, DATABASE 생성이 필요합니다.</li>

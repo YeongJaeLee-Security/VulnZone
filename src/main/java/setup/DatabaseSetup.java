@@ -50,6 +50,19 @@ public class DatabaseSetup {
 				// 3. 테이블 생성
 				pstmt = conn.prepareStatement(createTableQuery);
 				pstmt.executeUpdate();
+				
+				String createTableQuery2 = "CREATE TABLE IF NOT EXISTS hackable_user (" +
+						"id int auto_increment NOT NULL," + 
+						"userID VARCHAR(20) NOT NULL," +
+						"userPassword VARCHAR(64) NOT NULL," +
+						"userName VARCHAR(20)," +
+						"userGender VARCHAR(20)," +
+						"userEmail VARCHAR(50)," +
+						"PRIMARY KEY (id)" +
+						")";
+				
+				pstmt = conn.prepareStatement(createTableQuery2);
+				pstmt.executeUpdate();
 	
 				return 1;
 			} catch (Exception e) {

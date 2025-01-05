@@ -140,7 +140,8 @@ public class LogUtil {
 	            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
 	            if (response.statusCode() == 200) {
-	                System.out.println("Log sent successfully: " + response.body());
+	            	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+	                System.out.println("Log sent successfully: " + response.body() + " - " + dateFormat.format(new Date()));
 	            } else {
 	                System.err.println("Failed to send log. Response code: " + response.statusCode());
 	                System.err.println("Response body: " + response.body());

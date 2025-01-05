@@ -66,6 +66,7 @@ public class UserDAO {
     // 회원가입 메서드
     public int join(User user) {
         String sql = "INSERT INTO USER VALUES (?, ?, ?, ?, ?)";
+        String sql2 = "INSERT INTO Hackable_USER (userID, userPassword, userName, userGender, userEmail) VALUES (?, ?, ?, ?, ?)";
 
         // 유효성 검사
         if (!utils.validateID(user.getUserID())) {
@@ -89,8 +90,18 @@ public class UserDAO {
             pstmt.setString(3, user.getUserName());
             pstmt.setString(4, user.getUserGender());
             pstmt.setString(5, user.getUserEmail());
+            
+            int result = pstmt.executeUpdate();
+            
+            pstmt = conn.prepareStatement(sql2);
+            pstmt.setString(1, user.getUserID());
+            pstmt.setString(2, hashedPassword);
+            pstmt.setString(3, user.getUserName());
+            pstmt.setString(4, user.getUserGender());
+            pstmt.setString(5, user.getUserEmail());
+            pstmt.executeUpdate();
 
-            return pstmt.executeUpdate();
+            return result;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

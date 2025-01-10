@@ -10,6 +10,8 @@ public class DataBase {
 	private String tableName;
 	private String dbID;
 	private String dbPassword;
+	private String sqlTableName;
+	private String xssTableName;
 	
 	public DataBase() {
 		try {
@@ -21,6 +23,10 @@ public class DataBase {
 			dbID = properties.getProperty("db.id");
 			dbPassword = properties.getProperty("db.password");
 			tableName = properties.getProperty("db.user.table.name");
+			
+			sqlTableName = properties.getProperty("db.sql.table.name");
+			xssTableName = properties.getProperty("db.xss.table.name");
+			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -49,5 +55,13 @@ public class DataBase {
 
 	public String getDbPassword() {
 		return dbPassword;
+	}
+	
+	public String getSqlTableName() {
+		return sqlTableName;
+	}
+	
+	public String getXssTableName() {
+		return xssTableName;
 	}
 }

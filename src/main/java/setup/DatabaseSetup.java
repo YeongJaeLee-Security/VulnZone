@@ -51,7 +51,8 @@ public class DatabaseSetup {
 				pstmt = conn.prepareStatement(createTableQuery);
 				pstmt.executeUpdate();
 				
-				String createTableQuery2 = "CREATE TABLE IF NOT EXISTS hackable_user (" +
+				// For SQL Injection
+				String createTableQuery2 = "CREATE TABLE IF NOT EXISTS " + database.getSqlTableName() + " (" +
 						"id int auto_increment NOT NULL," + 
 						"userID VARCHAR(20) NOT NULL," +
 						"userPassword VARCHAR(64) NOT NULL," +
@@ -62,6 +63,17 @@ public class DatabaseSetup {
 						")";
 				
 				pstmt = conn.prepareStatement(createTableQuery2);
+				pstmt.executeUpdate();
+				
+				// For Store Cross-site Script(XSS)
+				String createTableQuery3 = "CREATE TABLE IF NOT EXISTS " + database.getXssTableName() + " (" +
+						"id int auto_increment NOT NULL," +
+						"name VARCHAR(10)," +
+						"comment VARCHAR(50)," +
+						"PRIMARY KEY (id)" +
+						")";
+				
+				pstmt = conn.prepareStatement(createTableQuery3);
 				pstmt.executeUpdate();
 	
 				return 1;

@@ -68,8 +68,8 @@ public class DatabaseSetup {
 				// For Store Cross-site Script(XSS)
 				String createTableQuery3 = "CREATE TABLE IF NOT EXISTS " + database.getXssTableName() + " (" +
 						"id int auto_increment NOT NULL," +
-						"name VARCHAR(10)," +
-						"comment VARCHAR(50)," +
+						"name VARCHAR(50)," +
+						"comment VARCHAR(100)," +
 						"PRIMARY KEY (id)" +
 						")";
 				

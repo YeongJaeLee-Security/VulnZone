@@ -9,7 +9,7 @@ String userID = session.getAttribute("userID") != null ? (String) session.getAtt
 
 if (userID == null) {
 %>
-<script>
+<script nonce="inlineScriptLogin">
 	const contextPath = '<%= request.getContextPath() %>'
 	location.href = contextPath + '/auth/login.jsp'
 </script>
